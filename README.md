@@ -38,12 +38,12 @@ Now let’s see what is happening in background —
 
 Let’s assume that the default TTL is 30. The source will first set TTL as 1 and send the packet to first nearest router (R2). R2 will then set reduce TTL by 1 and now TTL became 0 and R2 sends `TTL exceeded` message.
 
-Remember — Source will increment the TTL value and routers will decrement the TTL value.
+Remember — **Source will increment the TTL value and routers will decrement the TTL value.**
 
 Now source will make the TTL value to 2. When it reaches R2, TTL becomes 1 and packet is forwarded to R5 where TTL became 0. R5 will send TTL exceeded .
 
 Again, source will make TTL value to 3 and this continues until it reaches the destination or packet is dropped till source increments TTL value to 30.
 
-But how will the source know it has reached the destination ? The packet contains the following information — source address, destination address and an invalid UDP port.
+**But how will the source know it has reached the destination ?** The packet contains the following information — **source address, destination address and an invalid UDP port.**
 
-So, When the packet reaches the destination it hits an invalid port and will send a ICMP Destination/Port Unreachablemessage intead of TTL exceeded.
+So, When the packet reaches the destination it hits an invalid port and will send a ICMP **Destination/Port Unreachable** message intead of TTL exceeded.
